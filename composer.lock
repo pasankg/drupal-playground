@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "feeab2ed7fa8c88694987b3943087e57",
+    "content-hash": "2556e26828b32b2739baa6f172825b5d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1501,17 +1501,11 @@
         },
         {
             "name": "drupal/bootstrap_barrio",
-            "version": "5.5.17",
+            "version": "dev-5.5.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/bootstrap_barrio.git",
-                "reference": "5.5.17"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/bootstrap_barrio-5.5.17.zip",
-                "reference": "5.5.17",
-                "shasum": "2f24a1caee5cd9041c49c607c2cde0a7d48083ae"
+                "reference": "ca20bf53de27662795f726cdd5d798345a538232"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11.0",
@@ -1519,12 +1513,15 @@
             },
             "type": "drupal-theme",
             "extra": {
+                "branch-alias": {
+                    "dev-5.5.x": "5.5.x-dev"
+                },
                 "drupal": {
-                    "version": "5.5.17",
-                    "datestamp": "1725856215",
+                    "version": "5.5.17+8-dev",
+                    "datestamp": "1727884485",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -9063,6 +9060,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "drupal/bootstrap_barrio": 20,
         "drupal/components": 10
     },
     "prefer-stable": true,
