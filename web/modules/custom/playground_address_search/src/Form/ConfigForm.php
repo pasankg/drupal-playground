@@ -3,27 +3,12 @@
 namespace Drupal\playground_address_search\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Config\TypedConfigManagerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class ConfigForm extends ConfigFormBase {
-
-  /**
-   * The dependency injection container.
-   *
-   * @var \Drupal\Component\DependencyInjection\ContainerInterface
-   */
-  protected $container;
-
-  public function __construct(ConfigFactoryInterface $config_factory, ContainerInterface $container = NULL) {
-    parent::__construct($config_factory);
-    if ($container === NULL) {
-      $container = \Drupal::getContainer();
-      @trigger_error('Calling ' . __METHOD__ . ' without the $container argument is deprecated in playground_address_search.', E_USER_DEPRECATED);
-    }
-    $this->container = $container;
-  }
 
   /**
    * {@inheritdoc}
@@ -37,16 +22,6 @@ class ConfigForm extends ConfigFormBase {
    */
   public function getFormId() {
     return 'playground_address_search_settings_form';
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('config.factory'),
-      $container
-    );
   }
 
   /**
