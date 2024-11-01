@@ -3,4 +3,4 @@ type: module
 version: 1.0.0
 description: 'Provides a form to save sensitive data such as API keys in the database'
 package: Playground modules
-core_version_requirement: ^9.4 || ^10
+core_version_requirement: ^9.4 || ^10 || ^11
