@@ -4,10 +4,10 @@ namespace Drupal\playground_address_search\Services;
 
 use Drupal;
 use Drupal\Component\Utility\Xss;
-use Drupal\Core\Config\ConfigFactory;
+use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Url;
 
-class Connection {
+class AddressSearchApiConnection {
 
   /**
    * Rapid API Hostname.
@@ -19,7 +19,7 @@ class Connection {
    */
   protected string $rapid_api_key;
 
-  public function __construct(ConfigFactory $configFactory) {
+  public function __construct(ConfigFactoryInterface $configFactory) {
     $config = $configFactory->getEditable('playground_address_search.settings');
     $this->rapid_api_host = $config->get('rapid_api_host') ?? NULL;
     $this->rapid_api_key = $config->get('rapid_api_key') ?? NULL;
@@ -47,7 +47,7 @@ class Connection {
     }
 
     curl_setopt_array($curl, [
-      CURLOPT_URL => "https://" . $this->rapid_api_host . "/addresses?q=" . Xss::filter($query),
+      CURLOPT_URL => "https://" . $this->rapid_api_host . "/addresses?q=" . urlencode(Xss::filter($query)),
       CURLOPT_RETURNTRANSFER => TRUE,
       CURLOPT_ENCODING => "",
       CURLOPT_MAXREDIRS => 10,
@@ -72,8 +72,7 @@ class Connection {
 
       // Drupal::messenger()->addError(t('cURL Error: :s :d', [':s' => $err, ':d' => $http_code]));
       return ['error' => TRUE];
-    }
-    else {
+    } else {
       return $response;
     }
   }

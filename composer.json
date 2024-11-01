@@ -123,5 +123,11 @@
             "mkdir -p web/libraries/bootstrap",
             "cp -R vendor/twbs/bootstrap/dist web/libraries/bootstrap"
         ]
+    },
+    "require-dev": {
+        "behat/mink": "^1.12",
+        "phpspec/prophecy": "^1.19",
+        "phpspec/prophecy-phpunit": "^2.2",
+        "phpunit/phpunit": "^10.5"
     }
 }
