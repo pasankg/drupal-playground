@@ -2,5 +2,5 @@ name: Playground
 type: theme
 'base theme': olivero
 version: 1.0.0
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 description: 'Playground theme'
