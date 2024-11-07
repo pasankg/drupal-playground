@@ -1,0 +1,174 @@
+uuid: d5e3cb6b-875d-4b00-862c-b7dd30c441d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.register
+    - field.field.user.user.field_about_me
+    - field.field.user.user.field_address
+    - field.field.user.user.field_age
+    - field.field.user.user.field_area_of_expertise
+    - field.field.user.user.field_date_of_birth
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_please_specify
+    - field.field.user.user.field_postcode
+    - field.field.user.user.field_suburb
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - datetime
+    - field_group
+    - field_layout
+    - image
+    - layout_discovery
+    - telephone
+    - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  field_group:
+    group_about_me:
+      children:
+        - user_picture
+        - field_about_me
+        - field_date_of_birth
+        - field_age
+        - field_area_of_expertise
+        - field_please_specify
+      label: 'About me'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: about_me_group
+        description: ''
+        required_fields: true
+        formatter: closed
+        direction: vertical
+        width_breakpoint: 640
+        effect: bounceslide
+    group_contact_details:
+      children:
+        - field_phone
+        - field_address
+        - field_suburb
+        - field_postcode
+        - contact
+      label: 'Contact Details'
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: contact_group
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: FaQ9Ptcpxpg30AtiqRDtl_8zbJArHP1LPfug_s59TOA
+id: user.user.register
+targetEntityType: user
+bundle: user
+mode: register
+content:
+  account:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_about_me:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_address:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_age:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_area_of_expertise:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_date_of_birth:
+    type: datetime_default
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_phone:
+    type: telephone_default
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_please_specify:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_postcode:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_suburb:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  language:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+hidden: {  }

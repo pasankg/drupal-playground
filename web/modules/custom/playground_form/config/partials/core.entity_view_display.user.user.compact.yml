@@ -1,0 +1,86 @@
+uuid: 198cd07d-a5c2-4e9d-97d6-b64ba1004823
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.field_about_me
+    - field.field.user.user.field_address
+    - field.field.user.user.field_age
+    - field.field.user.user.field_area_of_expertise
+    - field.field.user.user.field_date_of_birth
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_please_specify
+    - field.field.user.user.field_postcode
+    - field.field.user.user.field_suburb
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - field_layout
+    - image
+    - layout_builder
+    - layout_discovery
+    - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings:
+      label: ''
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          29438555-541c-4d16-85f0-1e5a2258205f:
+            uuid: 29438555-541c-4d16-85f0-1e5a2258205f
+            region: content
+            configuration:
+              id: 'field_block:user:user:user_picture'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_link: content
+                  image_style: thumbnail
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+_core:
+  default_config_hash: 00zr_RBdTjPjBGITD3h4c1ESQZimjdVCcHGt1trLqIY
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content:
+  user_picture:
+    type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: thumbnail
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_about_me: true
+  field_address: true
+  field_age: true
+  field_area_of_expertise: true
+  field_date_of_birth: true
+  field_phone: true
+  field_please_specify: true
+  field_postcode: true
+  field_suburb: true
+  member_for: true

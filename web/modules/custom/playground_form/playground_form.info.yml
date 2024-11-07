@@ -5,3 +5,11 @@ package: Playground modules
 core_version_requirement: ^9.4 || ^10 || ^11
 dependencies:
   - playground_address_search:playground_address_search
+  - drupal:field
+  - drupal:options
+  - drupal:datetime
+  - drupal:telephone
+  - drupal:field_group
+  - drupal:field_layout
+  - drupal:layout_discovery
+  - drupal:layout_builder

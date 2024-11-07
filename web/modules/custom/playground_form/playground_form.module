@@ -15,7 +15,8 @@ function playground_form_entity_type_alter(array &$entity_types) {
 /**
  * Implements hook_form_FORM_ID_alter().
  */
-function playground_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {}
+function playground_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+}
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -25,18 +26,20 @@ function playground_menu_form_user_form_alter(&$form, FormStateInterface $form_s
   $form['field_age']['widget'][0]['value']['#attributes']['readonly'] = 'readonly';
   $form['field_age']['widget'][0]['value']['#attributes']['class'][] = 'readonly';
 
-  // Add Ajax callback for DOB field to calculate Age.
-  $form['field_date_of_birth']['widget'][0]['value'] += [
-    '#ajax' => [
-      'callback' => 'calculate_age',
-      'event' => 'focusout',
-      'disable-refocus' => TRUE,
-      'progress' => [
-        'type' => 'throbber',
-        'message' => 'Calculating age',
+  if (isset($form['field_date_of_birth'])) {
+    // Add Ajax callback for DOB field to calculate Age.
+    $form['field_date_of_birth']['widget'][0]['value'] += [
+      '#ajax' => [
+        'callback' => 'calculate_age',
+        'event' => 'focusout',
+        'disable-refocus' => TRUE,
+        'progress' => [
+          'type' => 'throbber',
+          'message' => 'Calculating age',
+        ],
       ],
-    ],
-  ];
+    ];
+  }
 }
 
 /**
