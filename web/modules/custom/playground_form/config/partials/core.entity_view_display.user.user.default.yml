@@ -29,6 +29,7 @@ third_party_settings:
       label: ''
   layout_builder:
     enabled: true
+    allow_custom: false
     sections:
       -
         layout_id: layout_onecol

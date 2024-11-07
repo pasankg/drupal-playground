@@ -20,6 +20,7 @@ dependencies:
     - field_layout
     - image
     - layout_discovery
+    - path
     - telephone
     - user
 third_party_settings:
@@ -40,12 +41,14 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 1
-      format_type: accordion
+      format_type: fieldset
       format_settings:
         classes: ''
         show_empty_fields: false
         id: about_me_group
-        effect: none
+        label_as_html: false
+        description: ''
+        required_fields: true
     group_contact_details:
       children:
         - field_phone
@@ -62,6 +65,7 @@ third_party_settings:
         classes: ''
         show_empty_fields: false
         id: contact_group
+        label_as_html: false
         description: ''
         required_fields: true
 _core:
@@ -149,6 +153,12 @@ content:
     third_party_settings: {  }
   language:
     weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
