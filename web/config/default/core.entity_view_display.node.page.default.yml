@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_address_finder
+    - field.field.node.page.layout_builder__layout
     - node.type.page
   module:
     - field_layout
     - layout_builder
     - layout_discovery
+    - playground_address_search
     - text
     - user
 third_party_settings:
@@ -18,6 +21,7 @@ third_party_settings:
       label: ''
   layout_builder:
     enabled: true
+    allow_custom: true
     sections:
       -
         layout_id: layout_onecol
@@ -49,6 +53,29 @@ third_party_settings:
                 entity: layout_builder.entity
             weight: 1
             additional: {  }
+          adf47c60-e562-4007-aa28-30f60cbebb80:
+            uuid: adf47c60-e562-4007-aa28-30f60cbebb80
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_address_finder'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: address_autocomplete_formatter
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: 'Twin towers'
+          context_mapping: {  }
+          column_widths: 50-50
+        components: {  }
         third_party_settings: {  }
 _core:
   default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
@@ -64,9 +91,17 @@ content:
     third_party_settings: {  }
     weight: 100
     region: content
+  field_address_finder:
+    type: address_autocomplete_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 101
     region: content
-hidden: {  }
+hidden:
+  layout_builder__layout: true
