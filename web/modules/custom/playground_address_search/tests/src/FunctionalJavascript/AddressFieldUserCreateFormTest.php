@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\playground_address_search\FunctionalJavascript;
 
+use Behat\Mink\Exception\ElementNotFoundException;
+use Behat\Mink\Exception\ResponseTextException;
 use Drupal\FunctionalJavascriptTests\WebDriverTestBase;
 
 class AddressFieldUserCreateFormTest extends WebDriverTestBase {
@@ -22,10 +24,10 @@ class AddressFieldUserCreateFormTest extends WebDriverTestBase {
   }
 
   /**
-   * Ensure address field is visiable and functional for the user.
+   * Ensure address field is visible and functional for the user.
    * @return void
-   * @throws \Behat\Mink\Exception\ElementNotFoundException
-   * @throws \Behat\Mink\Exception\ResponseTextException
+   * @throws ElementNotFoundException
+   * @throws ResponseTextException
    */
   public function testCreateUserForm(): void {
     $this->assertSession()->waitForButton('Menu', 1000);

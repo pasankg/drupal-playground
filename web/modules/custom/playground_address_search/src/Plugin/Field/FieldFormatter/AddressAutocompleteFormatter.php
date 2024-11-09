@@ -23,7 +23,7 @@ class AddressAutocompleteFormatter extends FormatterBase {
    * @inheritDoc
    */
   public function viewElements(FieldItemListInterface $items, $langcode) {
-    $element = [];
+    $elements = [];
     foreach ($items as $delta => $item) {
       $elements[$delta] = ['#markup' => $item->value];
     }
