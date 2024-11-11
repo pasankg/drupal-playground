@@ -1,0 +1,19 @@
+uuid: e3b0f082-21b4-47e5-8126-135ec814ab9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - playground_address_search
+id: node.field_address_finder
+field_name: field_address_finder
+entity_type: node
+type: address_autocomplete
+settings: {  }
+module: playground_address_search
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

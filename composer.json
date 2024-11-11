@@ -49,11 +49,13 @@
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
+            "php-http/discovery": true,
             "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "cweagans/composer-patches": true
+            "tbachert/spi": true
         },
         "sort-packages": true
     },
@@ -126,6 +128,8 @@
     },
     "require-dev": {
         "behat/mink": "^1.12",
+        "behat/mink-selenium2-driver": "^1.4",
+        "drupal/core-dev": "^11.0",
         "phpspec/prophecy": "^1.19",
         "phpspec/prophecy-phpunit": "^2.2",
         "phpunit/phpunit": "^10.5"

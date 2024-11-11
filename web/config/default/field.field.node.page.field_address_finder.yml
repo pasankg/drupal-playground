@@ -1,0 +1,21 @@
+uuid: 6d896114-7340-4b41-b934-2d1a74d11371
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address_finder
+    - node.type.page
+  module:
+    - playground_address_search
+id: node.page.field_address_finder
+field_name: field_address_finder
+entity_type: node
+bundle: page
+label: 'Address finder'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: address_autocomplete

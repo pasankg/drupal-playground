@@ -1,0 +1,64 @@
+<?php
+
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Implements hook_install().
+ */
+function playground_form_install() {
+  // List of configuration items to import or update.
+  $configs_to_import = [
+    'core.entity_form_display.user.user.default',
+    'core.entity_form_display.user.user.register',
+    'core.entity_view_display.user.user.compact',
+    'core.entity_view_display.user.user.default',
+  ];
+
+  // Get the path to the module's configuration files.
+  $module_path = \Drupal::service('extension.path.resolver')->getPath('module', 'playground_form');
+  $config_path = $module_path . '/config/partials';
+
+  // Load the configuration from the module's config/install directory.
+  $source = new FileStorage($config_path);
+  $config_factory = \Drupal::service('config.factory');
+
+  foreach ($configs_to_import as $config_name) {
+    $active_config = $config_factory->getEditable($config_name);
+    $new_config = $source->read($config_name);
+
+    if ($new_config) {
+      // Merge the new configuration with the existing one.
+      $active_config->setData($new_config)->save();
+    }
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function playground_form_uninstall() {
+  // List of field items to delete on uninstall.
+  $fields_to_delete = [
+    'field_about_me',
+    'field_address',
+    'field_age',
+    'field_area_of_expertise',
+    'field_date_of_birth',
+    'field_phone',
+    'field_please_specify',
+    'field_postcode',
+    'field_suburb',
+  ];
+
+  /* @var $entityFieldManager Drupal\Core\Entity\EntityFieldManager */
+  $entityFieldManager = Drupal::service('entity_field.manager');
+  $fields = $entityFieldManager->getFieldDefinitions('user', 'user');
+
+  foreach ($fields_to_delete as $field_name) {
+    if (isset($fields[$field_name])) {
+      $fields[$field_name]->delete();
+    }
+  }
+}
+
+
